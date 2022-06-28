@@ -1,0 +1,7 @@
+[defaults]
+url=https://op-sentry.dd.sour-lemon.com
+org=dadi
+project=kejinshou-webapp
+
+[auth]
+token=906869b01a684c9a853d52cee9ae22765d47499de9b24b4fb94db451a9a3b4a8
