@@ -23,7 +23,8 @@ usePcToken();
 }
 .container {
     margin: 0 auto;
-    width: 1346px;
-    box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.20);
+    width: 100vw;
+    height: 100vh;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.20);
 }
 </style>

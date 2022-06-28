@@ -1,115 +1,28 @@
 <template>
-    <el-row>
-        <el-col :span="12" :offset="6">
-            <div class="login-ctr">
-                <div class="form">
-                    <div class="logo">
-                        <img src="/assets/theme/kejinshou/logo.png" :alt="appTitle">
-                        <h4>udofly</h4>
-                    </div>
-                </div>
-            </div>
-        </el-col>
-    </el-row>
+    <div class="logo">
+        <img
+            src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F2018-06-01%2F5b10ee5e9225f.jpg&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1658996824&t=fb7bcd0e787b4ddf237fb7b1f7f867fc"
+            :alt="appTitle">
+    </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref } from 'vue'
-import { apiPySystemAuthLogin } from '@/services/poppy';
-import { useStore } from '@/store';
-import { get } from 'lodash-es';
 import { useRouter } from 'vue-router';
-import { envLocalStore } from '@/utils/utils';
-import { appTitle, storageKey } from '@/utils/conf';
-import { ElForm } from 'element-plus';
-import { pcToast } from '@/utils/pc';
+import { appTitle } from '@/utils/conf';
 
-const form: any = ref<InstanceType<typeof ElForm>>();
-const trans = reactive({
-    captchaDisabled: false,
-    captchaText: '发送验证码'
-});
-const value = reactive({
-    passport: '',
-    password: '',
-    captcha: ''
-})
-const rules = reactive({
-    passport: [
-        { required: true, message: '请输入通行证', trigger: 'change' }
-    ],
-    password: [
-        { required: true, message: '请输入密码', trigger: 'change' }
-    ]
-})
 const router = useRouter();
-const store = useStore();
 
-const onSubmit = () => {
-    form.value.validate((valid: boolean) => {
-        if (valid) {
-            apiPySystemAuthLogin({
-                passport: value.passport,
-                password: value.password,
-                guard: 'backend'
-            }).then(({ success, message, data }) => {
-                pcToast(message, success)
-                if (success) {
-                    envLocalStore(storageKey.PC_TOKEN, get(data, 'token'));
-                    // set store
-                    store.dispatch('pc/Login', {
-                        token: get(data, 'token')
-                    });
-                    const go = get(router.currentRoute.value, 'query.go', '');
-                    if (!go) {
-                        router.push({ name: 'pc.info' })
-                    } else {
-                        router.push({ path: window.atob(go) })
-                    }
-                }
-            })
-        }
-    })
-
-}
 </script>
 
 <style scoped lang="less">
 
 
-.login-ctr {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-
-.form {
-    width: 100%;
-}
-
 .logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 55px;
     img {
-        width: 55px;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
     }
-    h4 {
-        height: 40px;
-        line-height: 40px;
-        font-size: 18px;
-        color: var(--k-color-text-black);
-        text-align: center;
-        margin: 0;
-    }
-    p {
-        font-size: 12px;
-        color: var(--k-color-text-light);
-        text-align: center;
-        margin-top: 0;
-    }
+
 }
 </style>
