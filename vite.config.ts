@@ -24,10 +24,10 @@ export default defineConfig(({ mode }) => {
         }
     }
 
-    let project = `kejinshou-pc-${mode}`;
-    if (mode.indexOf('hwm') != -1) {
-        project = `haowanme-pc-${mode}`.replace('-hwm', '');
-    }
+    let project = `udofly-pc`;
+//     if (mode.indexOf('hwm') != -1) {
+//         project = `haowanme-pc-${mode}`.replace('-hwm', '');
+//     }
 
     return {
         envDir: './config/',
@@ -92,7 +92,7 @@ export default defineConfig(({ mode }) => {
         },
         server: {
             // https: true,
-            port: 9241, // 设置服务启动端口号
+            port: 9246, // 设置服务启动端口号
             cors: true, // 允许跨域
             host: '0.0.0.0'
         }
