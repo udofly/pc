@@ -81,7 +81,7 @@ export default defineConfig(({ mode }) => {
             rollupOptions: {
                 input: {
                     index: resolve(__dirname, 'index.html'),
-                    haowanme: resolve(__dirname, 'haowanme.html'),
+//                     haowanme: resolve(__dirname, 'haowanme.html'),
                 },
                 output: {
                     manualChunks: {
