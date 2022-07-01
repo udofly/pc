@@ -42,7 +42,7 @@ import JoinUs from '@/views/main/JoinUs.vue';
 import Home from '@/views/main/Home.vue';
 import MainTop from '@/views/main/MainTop.vue';
 import Footer from '@/views/main/Footer.vue';
-import { onMounted, reactive,watch } from 'vue';
+import { onMounted, reactive, watch } from 'vue';
 import { debounce } from 'lodash-es';
 import HomeRightMouse from '@/views/main/HomeRightMouse.vue';
 
@@ -72,24 +72,10 @@ onMounted(() => {
     scrollToDetail(0);
 })
 
-const clickTopTab = function (title: String) {
-
-    let index = 1;
-    if (title === '首页') {
-        index = 0;
-    } else if (title === '关于我们') {
-        index = 1;
-    } else if (title === '我们的业务') {
-        index = 2;
-    } else if (title === '加入我们') {
-        index = 3;
-    } else if (title === '联系我们') {
-        index = 4;
-    }
+const clickTopTab = function (index: number) {
     if (trans.screenIndex != index) {
         scrollToDetail(index);
     }
-
 }
 
 const goSecondPage = function () {
@@ -141,8 +127,7 @@ const scrollAnimation = debounce(function (isDown) {
     }
 );
 
-const scrollToDetail = function (targetIndex) {
-
+const scrollToDetail = function (targetIndex: number) {
     if (targetIndex == 2) {
 
     } else if (targetIndex == 3) {

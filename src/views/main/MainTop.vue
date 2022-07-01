@@ -6,12 +6,12 @@
         <img src="@/assets/img/ic_logo.png"/>
         <div style="flex: 1"></div>
 
-        <ElTabs class="home--tabs" v-model="trans.active" @tab-click="onTabChange1">
-            <ElTabPane label="首页" name="首页"></ElTabPane>
-            <ElTabPane label="关于我们" name="关于我们"></ElTabPane>
-            <ElTabPane label="我们的业务" name="我们的业务"></ElTabPane>
-            <ElTabPane label="加入我们" name="加入我们"></ElTabPane>
-            <ElTabPane label="联系我们" name="联系我们"></ElTabPane>
+        <ElTabs class="home--tabs" v-model="trans.active" @tab-click="onTabChange">
+            <ElTabPane label="首页" name='0'></ElTabPane>
+            <ElTabPane label="关于我们" name='1'></ElTabPane>
+            <ElTabPane label="我们的业务" name='2'></ElTabPane>
+            <ElTabPane label="加入我们" name='3'></ElTabPane>
+            <ElTabPane label="联系我们" name='4'></ElTabPane>
         </ElTabs>
 
 
@@ -36,29 +36,18 @@ const props = defineProps({
 })
 
 const trans = reactive({
-    active: "关于我们"
+    active: '1'
 })
 watch(() => props.curActive, (newVal) => {
     if (newVal == 5) {
         newVal = 4;
     }
-    if (newVal === 0) {
-        trans.active = '首页';
-    } else if (newVal === 1) {
-        trans.active = '关于我们';
-    } else if (newVal === 2) {
-        trans.active = '我们的业务'
-    } else if (newVal === 3) {
-        trans.active = '加入我们'
-    } else if (newVal === 4) {
-        trans.active = '联系我们'
-    }
-
+    trans.active = newVal + '';
 })
 const emits = defineEmits(['onTabChange'])
 
-const onTabChange1 = function (e) {
-    emits('onTabChange', e.props.name)
+const onTabChange = function (e) {
+    emits('onTabChange', Number(e.props.name))
 }
 
 </script>

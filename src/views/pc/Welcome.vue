@@ -14,7 +14,7 @@ import { appTitle } from '@/utils/conf';
 const router = useRouter();
 
 const onGoHome = function (){
-    router.push({name:'pc.main'})
+    // router.push({name:'pc.main'})
 }
 </script>
 
