@@ -2,7 +2,8 @@
     <div class="logo">
         <img
             src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F2017-12-02%2F5a223fea35894.jpg&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1659000776&t=dc88b5a53f81fc7d5c43414d820961bb"
-            :alt="appTitle">
+            :alt="appTitle"
+        @click="onGoHome">
     </div>
 </template>
 
@@ -12,6 +13,9 @@ import { appTitle } from '@/utils/conf';
 
 const router = useRouter();
 
+const onGoHome = function (){
+    router.push({name:'pc.main'})
+}
 </script>
 
 <style scoped lang="less">

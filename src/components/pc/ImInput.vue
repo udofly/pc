@@ -80,7 +80,7 @@ watch(() => trans.tid, (newVal) => {
 
 
 const onPaste = (e) => {
-    console.log(e);
+    // console.log(e);
 }
 
 const onInput = () => {
@@ -183,17 +183,17 @@ const onUpload = ({ file }) => {
             };
             emitter.emit(EM_PC_VIDEO_SEND,tipActioin)
             client.put(path, file).then(function (r1) {
-                console.log('put success: %j', r1);
+                // console.log('put success: %j', r1);
                 emitter.emit(EM_PC_VIDEO_SEND_SUCCESS,tipActioin)
             }).then(function (r2) {
-                console.log('get success: %j', r2);
+                // console.log('get success: %j', r2);
             }).catch(function (err) {
                 console.error('oss error: %j', err);
                 emitter.emit(EM_PC_VIDEO_SEND_FAILURE,tipActioin)
             });
 
         }).catch(function (error){
-            console.log("get token oss error:",error)
+            // console.log("get token oss error:",error)
         });
 
     }else if(file.type.indexOf('data:image') == 0 || file.type.indexOf('image') == 0){

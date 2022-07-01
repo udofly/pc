@@ -142,7 +142,7 @@ emitter.on(EM_PC_RECEIVE_READ_MESSAGE, function (data) {
             return get(item, 'msg_id') === get(reads_item,'message_id');
         });
         if (contain) {
-            console.log("get(reads_item, 'users') = "+JSON.stringify(get(reads_item, 'users')))
+            // console.log("get(reads_item, 'users') = "+JSON.stringify(get(reads_item, 'users')))
             contain.data.content.read_status = getReadStatusDesc(ext, get(reads_item, 'users'));
         }
     })
