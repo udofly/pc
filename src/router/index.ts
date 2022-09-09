@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory, Router, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory, Router, RouteRecordRaw } from 'vue-router'
 import PcLayout from '@/layouts/PcLayout.vue';
 import SiteLayout from '@/layouts/SiteLayout.vue';
 import { get } from 'lodash-es';
@@ -8,11 +8,11 @@ const routes: Array<RouteRecordRaw> = [
         path: '/',
         component: PcLayout,
         children: [
-            { path: '', component: () => import('@/views/pc/Welcome.vue'), name: 'pc.home' },
-            { path: 'main', component: () => import('@/views/main/Main.vue'), name: 'pc.main' },
-            { path: 'login', component: () => import('@/views/pc/Login.vue'), name: 'pc.login' },
-            { path: 'info', component: () => import('@/views/pc/Info.vue'), name: 'pc.info', meta: { auth: true } },
-            { path: 'chat/:tid?', component: () => import('@/views/pc/Chat.vue'), name: 'pc.chat', meta: { auth: true } }
+            { path: '', component: () => import('@/views/pc/Welcome.vue'), name: 'pc.home',meta: {title: 'udofly'} },
+            { path: 'main', component: () => import('@/views/main/Main.vue'), name: 'pc.main',meta: {title: '首页'} },
+            { path: 'login', component: () => import('@/views/pc/Login.vue'), name: 'pc.login' ,meta: {title: 'udofly'}},
+            { path: 'info', component: () => import('@/views/pc/Info.vue'), name: 'pc.info', meta: { auth: true,title: 'udofly' } },
+            { path: 'chat/:tid?', component: () => import('@/views/pc/Chat.vue'), name: 'pc.chat', meta: { auth: true ,title: 'udofly'} }
         ]
     },
     {
@@ -30,7 +30,7 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router: Router = createRouter({
-    history: createWebHashHistory(),
+    history: createWebHistory('/'),
     routes
 })
 

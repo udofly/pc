@@ -4,10 +4,9 @@
         <img src="@/assets/img/ic_logo_footer.png"/>
 
         <div class="div-text">
-            <div>海南达迪电竞科技有限公司</div>
-            <div class="text">增值电信业务经营许可证：鲁B2-20220052</div>
-<!--            <div class="text" @click="goGov">琼ICP备19003093号-9</div>-->
-            <a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">琼ICP备19003093号-9</a>
+            <div>~~~~~~~~~</div>
+            <div class="text">~~~~~~~~~</div>
+            <a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">~~~~~~~~~</a>
         </div>
     </div>
 </template>
